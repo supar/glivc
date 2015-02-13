@@ -1,2 +1,2 @@
-# GitLan interface to view commits (glivc)
+# GitLab interface to view commits (glivc)
 
