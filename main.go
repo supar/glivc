@@ -2,14 +2,12 @@ package main
 
 import (
 	"github.com/go-martini/martini"
-	"logger"
-	//"runtime"
-	//"unsafe"
 )
 
 var (
-	srv		*martini.Martini
-	log		*logger.Log
+	VERSION 	string = "develop"
+	srv			*martini.Martini
+	log			*Log
 )
 
 func init() {
@@ -17,16 +15,16 @@ func init() {
 	ParseFlags()
 	
 	// Create logger
-	log = logger.NewLogger(10000)
+	log = NewLogger(10000)
 	defer log.Close()
 	
 	// Start console logger
 	log.SetLogger("console", "")
 	// Set log level
 	if DEBUG {
-		log.SetLevel(logger.LevelDebug)
+		log.SetLevel(LevelDebug)
 	} else {
-		log.SetLevel(logger.LevelNotice)
+		log.SetLevel(LevelNotice)
 	}
 	
 	// Init martini server
@@ -40,7 +38,7 @@ func init() {
 func main() {
 	
 	// Greeting
-	log.Info("Dude, i'm starting, be careful, GITLab+SBSS spacer...")
+	log.Info("Dude, i'm starting, be careful, GitLab interface to view commits v-%s", VERSION)
 	
 	r := martini.NewRouter()
 	
