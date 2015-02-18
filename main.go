@@ -48,6 +48,8 @@ func main() {
 	
 	r.Get("/project", getProjects)
 	r.Get("/project/:id", getProjects)
+	r.Get("/project/:id/branches", getBranches)
+	r.Get("/project/:id/branches/:branch", getBranches)
 	r.Get("/project/:id/branch/commits/:branch", getBranchCommits)
 	
 	srv.Action(r.Handle)
