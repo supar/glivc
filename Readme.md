@@ -6,7 +6,7 @@
 
 ## API
 
-### Получить список веток
+### Получить список проектов
 
 GET http://localhost:9999/project
 
@@ -15,6 +15,18 @@ GET http://localhost:9999/project
 GET http://localhost:9999/project/ID
 
 Где ID числовой идентификатор проекта
+
+### Получить список веток
+
+GET http://localhost:9999/project/ID/branches
+
+Где ID числовой идентификатор проекта
+
+### Информация по одной ветке
+
+GET http://localhost:9999/project/ID/branches/BRANCH_NAME
+
+Где ID числовой идентификатор проекта, BRANCH_NAME - имя ветки
 
 ### Список коммитов
 
@@ -28,4 +40,4 @@ GET http://localhost:9999/project/ID/branch/commits/BRANCH_NAME
 - limit - количество записей на странице (default:unlimit)
 - author - идентификатор автора. Проверяется вхождение значение этого параметра в подписи автора к коммиту: имя, email. В качестве поиска лучше использовать email. Этот параметр можно передать несколько раз http://localhost:9999/project/ID/branch/commits/BRANCH_NAME?author=user1&author=user2
 - merge - исключить/включить коммиты Merge Request (default:0)
-- message - поиск по комментарию коммита
+- msg - поиск по комментарию коммита
