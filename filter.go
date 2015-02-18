@@ -164,7 +164,7 @@ func (this *Filter) ParseQuery(args url.Values) (err error) {
 		
 		p, err = strconv.Atoi(vp)
 		
-		if err != nil {
+		if vp != "" && err != nil {
 			err = errors.New("Page: " + err.Error())
 			return
 		}
