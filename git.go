@@ -92,7 +92,7 @@ func getBranchCommits(params martini.Params, req *http.Request) (int, string) {
 	}
 	
 	// Set sorting
-	walker.Sorting(git.SortTime ^ git.SortReverse)
+	walker.Sorting(git.SortTime | (git.SortTime & git.SortReverse))
 	
 	// set ref
 	err = walker.PushRef(filter.BranchRef())
