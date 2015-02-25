@@ -214,7 +214,8 @@ func (this *Filter) IsAuthor(sig *git.Signature) bool {
 
 // Grep message
 func (this *Filter) IsMessage(s string) bool {
-	if len(this.Message) == 0 || strings.Contains(s, this.Message) {
+	str := strings.ToLower(s)
+	if len(this.Message) == 0 || strings.Contains(str, strings.ToLower(this.Message)) {
 		return true
 	}
 	
