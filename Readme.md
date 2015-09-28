@@ -20,7 +20,7 @@
 Пример запуска приложения в background через screen
 
 ```
->$ screen -L -d ./blivc
+>$ screen -L -d ./glivc
 ```
 
 ## API
