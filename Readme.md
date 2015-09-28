@@ -23,6 +23,16 @@
 >$ screen -L -d ./glivc
 ```
 
+## Сборка debian пакета для jessie
+
+В каталоге contribs/docker/jessie приложен сценарий для создания сборочного docker контенера. Предположим, что собран контейнер glivc-build, чтобы собрать пакет для debian jessie нужно перейти в папку с проектом и выполнить команду:
+
+```
+>$ docker run -it --rm -v $(pwd):/go/src/glivc -w /go/src/glivc glivc-build deb
+```
+
+После сборки пакет размещается в папке build/debian
+
 ## API
 
 ### Получить список проектов
