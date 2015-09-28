@@ -1,0 +1,11 @@
+[Unit]
+Description=GitLab interface to view commits (glivc)
+Requires=network.target
+After=multi-user.target
+
+[Service]
+EnvironmentFile=/etc/glivc/glivc.conf
+ExecStart=/bin/bash -c "/usr/sbin/glivc $VERBOSE -gr=$GIT_REPO_DIR -gt=$GITLAB_AUTH_TOKEN -gu=$GITLAB_API_SERVER -h=$HTTP_SERVER_ON -l $LOG_FILE"
+
+[Install]
+WantedBy=multi-user.target
