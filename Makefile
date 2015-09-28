@@ -1,7 +1,7 @@
 .PHONY: all build clean
 
 NAME=glivc
-VERSION=0.1.0
+VERSION=0.1.1
 SOURCES = $(shell ls -AB | grep -i 'makefile$$\|\.go$$')
 
 # Debian build root
