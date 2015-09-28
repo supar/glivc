@@ -1,0 +1,11 @@
+glivc (0.1.1-0) unstable; urgency=low
+
+  * Fix systemd service file
+
+ -- supar <paulrez@gmail.com>  Wed, 28 Sep 2015 18:20:00 +0300
+
+glivc (0.1.0-0) unstable; urgency=low
+
+  * Initial Release.
+
+ -- supar <paulrez@gmail.com>  Wed, 28 Sep 2015 16:00:00 +0300

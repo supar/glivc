@@ -1,0 +1,39 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+# export DH_VERBOSE := 1
+
+# Export sencha variables
+export PATH := /usr/local/go/bin:/go/bin:$(PATH)
+export GOPATH := /go:$(CURDIR)
+export DESTDIR := debian/glivc
+
+override_dh_auto_clean:
+	rm -rf `ls -A | grep -v "debian"`
+	tar xf ../*.orig.tar.gz -C ..
+
+override_dh_auto_configure:
+
+override_dh_auto_build:
+	cd src/glivc && $(MAKE) build
+
+override_dh_auto_install:
+	install -g 0 -o 0 -d $(DESTDIR)/etc/glivc/
+	install -g 0 -o 0 -d $(DESTDIR)/usr/sbin/
+	install -g 0 -o 0 -d $(DESTDIR)/lib/systemd/system/
+	install -g 0 -o 0 -d $(DESTDIR)/var/log/glivc/
+	install -m755 src/glivc/glivc $(DESTDIR)/usr/sbin/
+	install -m644 debian/glivc.conf $(DESTDIR)/etc/glivc/glivc.conf.sample
+	install -m644 debian/glivc.service $(DESTDIR)/lib/systemd/system/
+	touch $(DESTDIR)/var/log/glivc/glivc.log
+
+# the SHA1 of dockerinit is important: don't strip it
+# also, Go has lots of problems with stripping, so just don't
+override_dh_strip:
+
+override_dh_shlibdeps:
+
+
+%:
+	dh $@

@@ -1,0 +1,11 @@
+Source: glivc
+Priority: extra
+Section: misc
+Build-Depends: debhelper (>= 9)
+Standards-Version: 0.1.1
+Maintainer: supar <paulrez@gmail.com>
+
+Package: glivc
+Architecture: amd64
+Description: GitLab interface to view commits (glivc)
+
